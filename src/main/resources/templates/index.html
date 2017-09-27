@@ -24,7 +24,7 @@
                 <div class="inner">
 
                     <!-- Logo -->
-                    <h1><a th:href="index.html" methods="get" id="logo">ORIGINAL Shoes</a></h1>
+                    <h1><a href="#" th:href="@{/}" id="logo">ORIGINAL Shoes</a></h1>
 
                     <!-- Nav -->
                     <nav id="nav">
@@ -57,8 +57,8 @@
                                 </ul>
                             </li>
                             <li><a href="new.html">Новинки</a></li>
-                            <li><a href="sales.html">Распродажа</a></li>
-                            <li class="current_page_item"><a href="index.html">Контакты</a></li>
+                            <li><a href="#" th:href="@{/sales}">Распродажа</a></li>
+                            <li class="current_page_item"><a href="#" th:href="@{/}">Контакты</a></li>
                         </ul>
                     </nav>
 
@@ -72,7 +72,7 @@
                     where you can buy comfort, status, quality</h2>
                 <p>Woud you like Join to us</p>
                 <div>
-                    <a href="#" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
+                    <a href="#" th:href="@{/register}" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
                 </div>
             </div>
 

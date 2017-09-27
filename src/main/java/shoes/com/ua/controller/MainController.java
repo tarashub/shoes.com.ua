@@ -45,7 +45,11 @@ public class MainController {
 
     }
 
-
+  @GetMapping("/sales")
+      public String sales (Model model, Principal principal){
+      model.addAttribute("principal", principal);
+          return "sales";
+      }
 
     @GetMapping("/login")
     public String loginPage() {
@@ -53,7 +57,7 @@ public class MainController {
     }
 
 
-    @GetMapping("register")
+    @GetMapping("/register")
     public String toRegistration() {
         return "registration";
     }
