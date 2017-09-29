@@ -5,12 +5,18 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!--[if lte IE 8]>
-    <script src="ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="css/main.css"/>
+    <script src="ie/html5shiv.js" th:href="@{/js/html5shiv.js}></script><![endif]-->
+    <link  href="css/main.css"
+           th:href="@{/css/main.css}"
+           rel="stylesheet" media="screen"/>
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="css/ie8.css"/><![endif]-->
+    <link href="css/ie8.css"
+          th:href="@{/css/ie8.css}"
+          rel="stylesheet" media="screen"/><![endif]-->
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="css/ie9.css"/><![endif]-->
+    <link  href="css/ie9.css"
+           th:href="@{/css/ie9.css}"
+           rel="stylesheet" media="screen"/><![endif]-->
 </head>
 <body class="homepage">
 <div id="page-wrapper">
@@ -24,7 +30,7 @@
                 <div class="inner">
 
                     <!-- Logo -->
-                    <h1><a href="#" th:href="@{/}" id="logo">ORIGINAL Shoes</a></h1>
+                    <h1><a href="#" th:href="@{home}" id="logo">ORIGINAL Shoes</a></h1>
 
                     <!-- Nav -->
                     <nav id="nav">
@@ -56,9 +62,9 @@
                                     <li><a href="#">Балетки</a></li>
                                 </ul>
                             </li>
-                            <li><a href="new.html">Новинки</a></li>
-                            <li><a href="#" th:href="@{/sales}">Распродажа</a></li>
-                            <li class="current_page_item"><a href="#" th:href="@{/}">Контакты</a></li>
+                            <li><a href="#" th:href="@{new}">Новинки</a></li>
+                            <li><a href="#" th:href="@{sales}">Распродажа</a></li>
+                            <li class="current_page_item"><a href="#" th:href="@{home}">Контакты</a></li>
                         </ul>
                     </nav>
 
@@ -72,10 +78,49 @@
                     where you can buy comfort, status, quality</h2>
                 <p>Woud you like Join to us</p>
                 <div>
-                    <a href="#" th:href="@{/register}" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
+                    <a onclick="document.getElementById('id01').style.display='block'" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
                 </div>
+
             </div>
 
+            <!--Form of Registration-->
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+                <form class="modal-content animate">
+                    <div class="container-registration">
+                        <label><b>First name</b></label>
+                        <input class="input-registration" type="text" placeholder="Enter First name" name="firstName"/>
+
+                        <label><b>Last name</b></label>
+                        <input class="input-registration" type="text" placeholder="Enter Last name" name="lastName"/>
+
+                        <label><b>User name</b></label>
+                        <input class="input-registration" type="text" placeholder="Enter User name" name="username"/>
+
+                        <label><b>Password</b></label>
+                        <input class="input-registration" type="password" placeholder="Enter Password" name="psw"/>
+                        <label><b>Repeat Password</b></label>
+                        <input class="input-registration" type="password" placeholder="Repeat Password" name="psw-repeat"/>
+
+                        <label><b>Email</b></label>
+                        <input class="input-registration" type="email" placeholder="Enter Email" name="email"/>
+
+                        <label><b>Phone number</b></label>
+                        <input class="input-registration" type="email" placeholder="Enter phone number" name="phoneNumber"/>
+
+                        <label><b>Your Photo</b></label>
+                        <input type="file" name="avatar" placeholder="avatarka"/>
+
+                        <!--<input class="input-registration" type="checkbox" checked="checked"/><p>Remember me</p>-->
+                        <!--<p>By creating an account you agree to our Terms & Privacy.</p>-->
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <button type="submit" class="signupbtn">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>
