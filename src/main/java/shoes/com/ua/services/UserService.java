@@ -8,7 +8,7 @@ import shoes.com.ua.entity.User;
 
 import java.util.List;
 
-public interface UserServise {
+public interface UserService {
     void save(User user);
 
     User findOne(int id);

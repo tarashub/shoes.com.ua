@@ -4,15 +4,16 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import shoes.com.ua.entity.Authority;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 @Data
 @Entity
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,9 +21,11 @@ public class User implements UserDetails {
     private String lastName;
     private String username;
     private String password;
+    private String repeatPassword;
     private String email;
     private String phoneNumber;
     private String avatar;
+
     @Enumerated(EnumType.STRING)
     private Authority authority = Authority.ROLE_USER;
     private boolean accountNonExpired = true;
@@ -30,6 +33,8 @@ public class User implements UserDetails {
     private boolean credentialsNonExpired = true;
     private boolean enabled = true;
 
+    @ManyToMany
+    private Set<Products> products;
 
     public User() {
     }

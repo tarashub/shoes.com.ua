@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import shoes.com.ua.entity.User;
 import shoes.com.ua.services.MailSenderService;
-import shoes.com.ua.services.UserServise;
+import shoes.com.ua.services.UserService;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +20,9 @@ import java.security.Principal;
 
 @Controller
 public class MainController {
+
     @Autowired
-    private UserServise userServise;
+    private UserService userService;
     @Autowired
     private MailSenderService senderService;
 
@@ -65,8 +67,8 @@ public class MainController {
     @PostMapping("registration")
     public String register(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
                            @RequestParam("username") String username, @RequestParam("password") String password,
-                           @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
-                           @RequestParam("avatar") MultipartFile multipartFile
+                           @RequestParam("repeatPassword") String repeatPassword, @RequestParam("email") String email,
+                           @RequestParam("phoneNumber") String phoneNumber, @RequestParam("avatar") MultipartFile multipartFile
                           ) {
 
         String path=System.getProperty("user.home") + File.separator+"usersImages\\";
@@ -83,10 +85,11 @@ public class MainController {
         user.setLastName(lastName);
         user.setUsername(username);
         user.setPassword(password);
+        user.setRepeatPassword(repeatPassword);
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
         user.setAvatar("\\userAvatar\\" +multipartFile.getOriginalFilename());
-        userServise.save(user);
+        userService.save(user);
         senderService.send(user);
 
         return "index";
@@ -95,13 +98,13 @@ public class MainController {
 
     @GetMapping("/users")
         public String users (Model model) {
-        model.addAttribute("users", userServise.findAll());
+        model.addAttribute("users", userService.findAll());
 
             return "users";
         }
         @GetMapping("/user-{id}")
             public String user (@PathVariable("id") int idUser,Model model) {
-            model.addAttribute("user",userServise.findOne(idUser) );
+            model.addAttribute("user",userService.findOne(idUser) );
                 return "simpleUser";
             }
 

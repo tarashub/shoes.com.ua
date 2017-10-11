@@ -95,18 +95,18 @@
                         <input class="input-registration" type="text" placeholder="Enter Last name" name="lastName"/>
 
                         <label><b>User name</b></label>
-                        <input class="input-registration" type="text" placeholder="Enter User name" name="username"/>
+                        <input class="input-registration" type="text" placeholder="Enter User name" name="username" />
 
                         <label><b>Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Enter Password" name="psw"/>
+                        <input class="input-registration" type="password" placeholder="Enter Password" name="password" id="password" />
                         <label><b>Repeat Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Repeat Password" name="psw-repeat"/>
+                        <input class="input-registration" type="password" placeholder="Repeat Password" name="repeatPassword" id="password_confirm" oninput="check(this)" />
 
                         <label><b>Email</b></label>
-                        <input class="input-registration" type="email" placeholder="Enter Email" name="email"/>
+                        <input class="input-registration" type="email" placeholder="Enter Email" name="email" />
 
                         <label><b>Phone number</b></label>
-                        <input class="input-registration" type="email" placeholder="Enter phone number" name="phoneNumber"/>
+                        <input class="input-registration" type="number" placeholder="Enter phone number" name="phoneNumber" />
 
                         <label><b>Your Photo</b></label>
                         <input type="file" name="avatar" placeholder="avatarka"/>
@@ -116,7 +116,7 @@
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                            <button type="submit" class="signupbtn">Sign Up</button>
+                            <a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>
                         </div>
                     </div>
                 </form>

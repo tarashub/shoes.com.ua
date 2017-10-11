@@ -99,3 +99,63 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+////////////////////////////
+// Save JSON object to MySQL
+////////////////////////////
+
+$(function () {
+    $('#btnSubmit').click(function () {
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var userName = $('#userName').val();
+        var password = $('#password').val();
+        var email = $('#email').val();
+        var phoneNumber = $('#phoneNumber').val();
+        if (firstName != '' && lastName != '' && userName != '' && password != '' && email != '' && phoneNumber != '') {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "Default.aspx/InsertData",
+                data: '{firstName: ' + firstName +
+                ',lastName: ' + lastName +
+                ',userName:' + userName +
+                ',password:' + password  +
+                ',email:' + email  +
+                ',phoneNumber:' + phoneNumber  +'}',
+                dataType: "json",
+                success: function (data) {
+                    var obj = data.d;
+                    if (obj == 'true') {
+                        $('#txtName').val('');
+                        $('#txtUsername').val('');
+                        $('#txtPassword').val('');
+                        $('#lblmsg').html("Details Submitted Successfully");
+                        window.location.reload();
+                    }
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+        }
+        else {
+            alert('Please enter all the fields')
+            return false;
+        }
+    })
+});
+
+// _________________________________________________
+
+            // Confirm password
+// _________________________________________________
+
+function check(input) {
+    if (input.value !== document.getElementById('password').value) {
+        input.setCustomValidity('Password Must be Matching.');
+    } else {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+    }
+}
