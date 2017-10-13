@@ -13,6 +13,7 @@ import shoes.com.ua.entity.User;
 import shoes.com.ua.services.MailSenderService;
 import shoes.com.ua.services.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
@@ -26,12 +27,12 @@ public class MainController {
     @Autowired
     private MailSenderService senderService;
 
+
     @GetMapping({"/", "/home"})
     public String index(ModelMap model, HttpServletResponse response) {
         System.out.println(response.getStatus());
         return "index";
     }
-
 
 
     @GetMapping("/admin")
@@ -47,14 +48,22 @@ public class MainController {
 
     }
 
-  @GetMapping("/sales")
-      public String sales (Model model, Principal principal){
-      model.addAttribute("principal", principal);
-          return "sales";
-      }
+    @GetMapping("/sales")
+    public String sales(Model model, Principal principal) {
+        model.addAttribute("principal", principal);
+        return "sales";
+    }
 
     @GetMapping("/login")
-    public String loginPage() {
+    public String login(HttpServletRequest request) {
+
+        Iterable<User> col = userService.findAll();
+
+        long count = userService.count();
+        System.out.println("count " + count);
+        request.setAttribute("userCount", count);
+        //model.addAttribute("userCount", count);
+
         return "login";
     }
 
@@ -67,14 +76,14 @@ public class MainController {
     @PostMapping("registration")
     public String register(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
                            @RequestParam("username") String username, @RequestParam("password") String password,
-                           @RequestParam("repeatPassword") String repeatPassword, @RequestParam("email") String email,
-                           @RequestParam("phoneNumber") String phoneNumber, @RequestParam("avatar") MultipartFile multipartFile
-                          ) {
+                           @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
+                           @RequestParam("avatar") MultipartFile multipartFile
+    ) {
 
-        String path=System.getProperty("user.home") + File.separator+"usersImages\\";
+        String path = System.getProperty("user.home") + File.separator + "usersImages\\";
 
         try {
-            multipartFile.transferTo(new File(path+multipartFile.getOriginalFilename()));
+            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,10 +94,9 @@ public class MainController {
         user.setLastName(lastName);
         user.setUsername(username);
         user.setPassword(password);
-        user.setRepeatPassword(repeatPassword);
         user.setEmail(email);
         user.setPhoneNumber(phoneNumber);
-        user.setAvatar("\\userAvatar\\" +multipartFile.getOriginalFilename());
+        user.setAvatar("\\userAvatar\\" + multipartFile.getOriginalFilename());
         userService.save(user);
         senderService.send(user);
 
@@ -96,17 +104,19 @@ public class MainController {
     }
 
 
+
     @GetMapping("/users")
-        public String users (Model model) {
+    public String users(Model model) {
         model.addAttribute("users", userService.findAll());
 
-            return "users";
-        }
-        @GetMapping("/user-{id}")
-            public String user (@PathVariable("id") int idUser,Model model) {
-            model.addAttribute("user",userService.findOne(idUser) );
-                return "simpleUser";
-            }
+        return "users";
+    }
+
+    @GetMapping("/user-{id}")
+    public String user(@PathVariable("id") int idUser, Model model) {
+        model.addAttribute("user", userService.findOne(idUser));
+        return "simpleUser";
+    }
 
 
 }

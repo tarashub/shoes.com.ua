@@ -1,12 +1,14 @@
 package shoes.com.ua.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import shoes.com.ua.dao.ProductsDAO;
 import shoes.com.ua.entity.Products;
 import shoes.com.ua.services.ProductsService;
 
 import java.util.List;
 
+@Service
 public class ProductsServiceImpl implements ProductsService {
 
     @Autowired

@@ -21,7 +21,6 @@ public class User implements UserDetails {
     private String lastName;
     private String username;
     private String password;
-    private String repeatPassword;
     private String email;
     private String phoneNumber;
     private String avatar;

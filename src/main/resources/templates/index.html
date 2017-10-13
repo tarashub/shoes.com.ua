@@ -116,7 +116,8 @@
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                            <a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>
+                            <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
+                            <button type="submit" class="signupbtn" th:action="@{registration}" >Sign Up</button>
                         </div>
                     </div>
                 </form>

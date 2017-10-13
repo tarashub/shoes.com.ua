@@ -51,6 +51,11 @@ public class UserServiseImpl implements UserService, UserDetailsService {
         return userDAO.findByUserName(username);
     }
 
+    @Override
+    public long count() {
+        return 0;
+    }
+
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return findByName(username);
     }

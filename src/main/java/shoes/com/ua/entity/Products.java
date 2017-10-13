@@ -18,6 +18,7 @@ public class Products {
     private String sex;
     private double size;
     private String width;
+    private String picture;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "products_id",
