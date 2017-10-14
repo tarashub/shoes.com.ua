@@ -104,7 +104,6 @@ public class MainController {
     }
 
 
-
     @GetMapping("/users")
     public String users(Model model) {
         model.addAttribute("users", userService.findAll());
