@@ -64,10 +64,10 @@ public class MainController {
     }
 
 
-    @GetMapping("/register")
-    public String toRegistration() {
-        return "registration";
-    }
+//    @GetMapping("/register")
+//    public String toRegistration() {
+//        return "registration";
+//    }
 
 //    @PostMapping("registration")
 //    public String register(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,

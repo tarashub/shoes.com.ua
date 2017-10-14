@@ -76,11 +76,13 @@
                 <h2><strong>ORIGINAL Shoes</strong> is The Best web-shop
                     <br/>
                     where you can buy comfort, status, quality</h2>
-                <p>Woud you like Join to us</p>
                 <div>
                     <a onclick="document.getElementById('id01').style.display='block'" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
                 </div>
-
+                <!--<p>Woud you like Join to us <br/> or </p> <br/>-->
+                <div>
+                    <a onclick="document.getElementById('id02').style.display='block'" class="button big icon fa-check-circle" id="b01"><strong>Log in </strong></a>
+                </div>
             </div>
 
             <!--Form of Registration-->
@@ -118,6 +120,27 @@
                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                             <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
                             <button type="submit" class="signupbtn" >Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--Form of Login-->
+            <div id="id02" class="modal">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+                <form class="modal-content animate"  th:object="${user}" th:action="@{/login}" method="post">
+                    <div class="container-registration">
+
+                        <label><b>Email</b></label>
+                        <input class="input-registration" type="email" placeholder="Enter Email" name="email" />
+
+                        <label><b>Password</b></label>
+                        <input class="input-registration" type="password" placeholder="Enter Password" name="password" id="password" />
+
+                        <div class="clearfix">
+                            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                            <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
+                            <button type="submit" class="signupbtn" >Log in</button>
                         </div>
                     </div>
                 </form>
