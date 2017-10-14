@@ -7,16 +7,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import shoes.com.ua.entity.User;
 import shoes.com.ua.services.MailSenderService;
 import shoes.com.ua.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
 import java.security.Principal;
 
 @Controller
@@ -73,36 +69,42 @@ public class MainController {
         return "registration";
     }
 
-    @PostMapping("registration")
-    public String register(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
-                           @RequestParam("username") String username, @RequestParam("password") String password,
-                           @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
-                           @RequestParam("avatar") MultipartFile multipartFile
-    ) {
+//    @PostMapping("registration")
+//    public String register(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,
+//                           @RequestParam("username") String username, @RequestParam("password") String password,
+//                           @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber,
+//                           @RequestParam("avatar") MultipartFile multipartFile
+//    ) {
+//
+//        String path = System.getProperty("user.home") + File.separator + "usersImages\\";
+//
+//        try {
+//            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        User user = new User();
+//        user.setFirstName(firstName);
+//        user.setLastName(lastName);
+//        user.setPassword(password);
+//        user.setEmail(email);
+//        user.setPhoneNumber(phoneNumber);
+//        user.setAvatar("\\userAvatar\\" + multipartFile.getOriginalFilename());
+//        userService.save(user);
+//        senderService.send(user);
+//
+//        return "index";
+//    }
 
-        String path = System.getProperty("user.home") + File.separator + "usersImages\\";
+    @PostMapping("/registration")
+    public String saveProduct(User user){
 
-        try {
-            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setPhoneNumber(phoneNumber);
-        user.setAvatar("\\userAvatar\\" + multipartFile.getOriginalFilename());
         userService.save(user);
-        senderService.send(user);
 
         return "index";
     }
-
 
     @GetMapping("/users")
     public String users(Model model) {

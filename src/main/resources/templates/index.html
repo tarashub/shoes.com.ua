@@ -86,7 +86,7 @@
             <!--Form of Registration-->
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-                <form class="modal-content animate">
+                <form class="modal-content animate"  th:object="${user}" th:action="@{/registration}" method="post">
                     <div class="container-registration">
                         <label><b>First name</b></label>
                         <input class="input-registration" type="text" placeholder="Enter First name" name="firstName"/>
@@ -117,7 +117,7 @@
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                             <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
-                            <button type="submit" class="signupbtn" th:action="@{registration}" >Sign Up</button>
+                            <button type="submit" class="signupbtn" >Sign Up</button>
                         </div>
                     </div>
                 </form>
