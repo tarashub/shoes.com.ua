@@ -1424,7 +1424,7 @@
 		font-weight: 800;
 		font-size: 0.95em;
 		letter-spacing: 0.075em;
-		padding: 1em 2em;
+		padding: 0em 1em;
 		outline: 0;
 		border: 0;
 		white-space: nowrap;
@@ -1447,7 +1447,7 @@
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #50a1cf;
+			background-color: #f44336;
 		}
 
 		input[type="button"]:active,
@@ -1839,9 +1839,9 @@
 
 		/* Wrappers */
 
-			#header-wrapper {
-				padding: 3em 0;
-			}
+			/*#header-wrapper {*/
+				/*padding: 3em 0;*/
+			/*}*/
 
 			.wrapper {
 				padding: 7em 0 7em 0;
@@ -1998,7 +1998,7 @@
 		/* Wrappers */
 
 			#header-wrapper {
-				padding: 2em 0 0 0;
+				/*padding: 2em 0 0 0;*/
 				height: 11em;
 			}
 
@@ -2410,8 +2410,8 @@ input[type=email],
 }
 
 /* Set a style for all buttons */
-button {
-	background-color: #4CAF50;
+.buttonOfWindow {
+	background-color: #4091bf;
 	color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -2487,6 +2487,46 @@ button {
 	}
 }
 
-/*#b01{*/
-	/*margin-left: 275px;*/
-/*}*/
+#reg{
+	padding-left: 80%;
+}
+/**************************/
+ /*Field of searching*/
+/**************************/
+
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none;
+}
+input[type=search] {
+	background: #ededed url(img/search-icon.png) no-repeat 9px center;
+	border: solid 1px #ccc;
+	padding: 9px 10px 9px 32px;
+	width: 55px; /* Ширина по умолчанию */
+
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 130px; /* Ширина при наличии фокуса ввода */
+	background-color: #fff;
+	border-color: #6dcff6;
+
+	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	box-shadow: 0 0 5px rgba(109,207,246,.5); /* Эффект свечения */
+}
+
+
+

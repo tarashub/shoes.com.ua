@@ -1,13 +1,75 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
+    <title>ORIGINAL Shoes</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="ie/html5shiv.js" th:href="@{/js/html5shiv.js}></script><![endif]-->
+    <link href="css/main.css"
+          th:href="@{/css/main.css}"
+          rel="stylesheet" media="screen"/>
+    <!--[if lte IE 8]>
+    <link href="css/ie8.css"
+          th:href="@{/css/ie8.css}"
+          rel="stylesheet" media="screen"/><![endif]-->
+    <!--[if lte IE 9]>
+    <link href="css/ie9.css"
+          th:href="@{/css/ie9.css}"
+          rel="stylesheet" media="screen"/><![endif]-->
 </head>
 <body>
+
+<div class="container">
+     <th:block th:include="fragments/header"></th:block>
+
+    <h2>Product Details</h2>
+    <div>
+        <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
+            <input type="hidden"/>
+            <input type="hidden"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Product Id:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Price:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Image Url:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<th:block th:include="fragments/footer"></th:block>
+<!-- Scripts -->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.dropotron.min.js"></script>
+<script src="js/skel.min.js"></script>
+<script src="js/skel-viewport.min.js"></script>
+<script src="js/util.js"></script>
+
+<script src="js/ie/respond.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

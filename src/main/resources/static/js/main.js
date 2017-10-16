@@ -96,7 +96,7 @@ console.log("test ok");
 var modal1 = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal1) {
         modal1.style.display = "none";
     }
@@ -109,7 +109,7 @@ window.onclick = function(event) {
 var modal2 = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal2) {
         modal2.style.display = "none";
     }
@@ -135,9 +135,9 @@ $(function () {
                 data: '{firstName: ' + firstName +
                 ',lastName: ' + lastName +
                 ',userName:' + userName +
-                ',password:' + password  +
-                ',email:' + email  +
-                ',phoneNumber:' + phoneNumber  +'}',
+                ',password:' + password +
+                ',email:' + email +
+                ',phoneNumber:' + phoneNumber + '}',
                 dataType: "json",
                 success: function (data) {
                     var obj = data.d;
@@ -161,11 +161,9 @@ $(function () {
     })
 });
 
-// _________________________________________________
-
-            // Confirm password
-// _________________________________________________
-
+/////////////////////
+// Confirm password
+////////////////////
 function check(input) {
     if (input.value !== document.getElementById('password').value) {
         input.setCustomValidity('Password Must be Matching.');
@@ -174,3 +172,53 @@ function check(input) {
         input.setCustomValidity('');
     }
 }
+
+////////////////////
+// Search Service
+////////////////////
+
+// $('#menuShow').click(function () {
+//     if ($('#mobileMenu').is(':visible')) $('#mobileMenu').hide();
+//     else
+//         $('#mobileMenu').show();
+// });
+// $(document).scroll(function () {
+//     if ($(document).width() > 785) {
+//         if ($(document).scrollTop() > $('header').height() + 10) $('nav').addClass('fixed'); else
+//             $('nav').removeClass('fixed');
+//     }
+// });
+// function closeSearch() {
+//     $('#search_field').hide();
+//     $('body').removeClass('overlayForSearch');
+// }
+// var width = $(window).width();
+// $(window).resize(function () {
+//     if ($(this).width() != width) {
+//         width = $(this).width();
+//         $('#mobileMenu').hide();
+//         $('nav').removeClass('fixed');
+//         if ($('#block_fixed').length) $('#block_fixed').hide();
+//     }
+// });
+// $('#search').click(function () {
+//     var search = $('#search_field');
+//     if (search.css('display') == 'none') {
+//         search.fadeIn();
+//         $('body').addClass('overlayForSearch');
+//     } else
+//         search.fadeOut();
+// });
+//
+// (function () {
+//     var cx = '017848058708459995236:8emgwratyma';
+//     var gcse = document.createElement('script');
+//     gcse.type = 'text/javascript';
+//     gcse.async = true;
+//     gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+//     var s = document.getElementsByTagName('script')[0];
+//     s.parentNode.insertBefore(gcse, s);
+// })();
+
+
+

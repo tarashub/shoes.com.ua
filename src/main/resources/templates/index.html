@@ -6,148 +6,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!--[if lte IE 8]>
     <script src="ie/html5shiv.js" th:href="@{/js/html5shiv.js}></script><![endif]-->
-    <link  href="css/main.css"
-           th:href="@{/css/main.css}"
-           rel="stylesheet" media="screen"/>
+    <link href="css/main.css"
+          th:href="@{/css/main.css}"
+          rel="stylesheet" media="screen"/>
     <!--[if lte IE 8]>
     <link href="css/ie8.css"
           th:href="@{/css/ie8.css}"
           rel="stylesheet" media="screen"/><![endif]-->
     <!--[if lte IE 9]>
-    <link  href="css/ie9.css"
-           th:href="@{/css/ie9.css}"
-           rel="stylesheet" media="screen"/><![endif]-->
+    <link href="css/ie9.css"
+          th:href="@{/css/ie9.css}"
+          rel="stylesheet" media="screen"/><![endif]-->
 </head>
 <body class="homepage">
 <div id="page-wrapper">
-
+    <th:block th:include="fragments/header"></th:block>
     <!-- Header -->
-    <div id="header-wrapper">
-        <div class="container">
+    <!--<div id="header-wrapper">-->
+        <!--<div class="container">-->
 
-            <!-- Header -->
-            <header id="header">
-                <div class="inner">
+            <!--<div id="reg">-->
+                <!--<button onclick="document.getElementById('id01').style.display='block'">Sign up</button>-->
+                <!--<button onclick="document.getElementById('id02').style.display='block'">Log in</button>-->
+            <!--</div>-->
 
-                    <!-- Logo -->
-                    <h1><a href="#" th:href="@{home}" id="logo">ORIGINAL Shoes</a></h1>
+            <!--&lt;!&ndash; Header &ndash;&gt;-->
+            <!--<header id="header">-->
+                <!--<div class="inner">-->
 
-                    <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li>
-                                <a href="#">Женская</a>
-                                <ul>
-                                    <li><a href="#">Туфли</a></li>
-                                    <li><a href="#">Спортивные туфли</a></li>
-                                    <li><a href="#">Мокасины</a></li>
-                                    <li><a href="#">Балетки</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Мужская</a>
-                                <ul>
-                                    <li><a href="#">Туфли</a></li>
-                                    <li><a href="#">Спортивные туфли</a></li>
-                                    <li><a href="#">Мокасины</a></li>
-                                    <li><a href="#">Балетки</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Детская</a>
-                                <ul>
-                                    <li><a href="#">Туфли</a></li>
-                                    <li><a href="#">Спортивные туфли</a></li>
-                                    <li><a href="#">Мокасины</a></li>
-                                    <li><a href="#">Балетки</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" th:href="@{new}">Новинки</a></li>
-                            <li><a href="#" th:href="@{sales}">Распродажа</a></li>
-                            <li class="current_page_item"><a href="#" th:href="@{home}">Контакты</a></li>
-                        </ul>
-                    </nav>
+                    <!--&lt;!&ndash; Logo &ndash;&gt;-->
+                    <!--<h1><a href="#" th:href="@{home}" id="logo">ORIGINAL</a></h1>-->
 
-                </div>
-            </header>
+                    <!--&lt;!&ndash; Nav &ndash;&gt;-->
+                    <!--<nav id="nav">-->
+                        <!--<ul>-->
+                            <!--<li>-->
+                                <!--<a href="#">Женская</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#">Туфли</a></li>-->
+                                    <!--<li><a href="#">Спортивные туфли</a></li>-->
+                                    <!--<li><a href="#">Мокасины</a></li>-->
+                                    <!--<li><a href="#">Балетки</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#">Мужская</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#">Туфли</a></li>-->
+                                    <!--<li><a href="#">Спортивные туфли</a></li>-->
+                                    <!--<li><a href="#">Мокасины</a></li>-->
+                                    <!--<li><a href="#">Балетки</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<a href="#">Детская</a>-->
+                                <!--<ul>-->
+                                    <!--<li><a href="#">Туфли</a></li>-->
+                                    <!--<li><a href="#">Спортивные туфли</a></li>-->
+                                    <!--<li><a href="#">Мокасины</a></li>-->
+                                    <!--<li><a href="#">Балетки</a></li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li><a href="#" th:href="@{new}">Новинки</a></li>-->
+                            <!--<li><a href="#" th:href="@{sales}">Распродажа</a></li>-->
+                            <!--<li><a href="#" th:href="@{home}">Контакты</a></li>-->
+                            <!--<li><input type="search" placeholder="Искать"/></li>-->
 
-            <!-- Banner -->
-            <div id="banner">
-                <h2><strong>ORIGINAL Shoes</strong> is The Best web-shop
-                    <br/>
-                    where you can buy comfort, status, quality</h2>
-                <div>
-                    <a onclick="document.getElementById('id01').style.display='block'" class="button big icon fa-check-circle"><strong>Sign up</strong></a>
-                </div>
-                <!--<p>Woud you like Join to us <br/> or </p> <br/>-->
-                <div>
-                    <a onclick="document.getElementById('id02').style.display='block'" class="button big icon fa-check-circle" id="b01"><strong>Log in </strong></a>
-                </div>
-            </div>
+                        <!--</ul>-->
 
-            <!--Form of Registration-->
-            <div id="id01" class="modal">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-                <form class="modal-content animate"  th:object="${user}" th:action="@{/registration}" method="post">
-                    <div class="container-registration">
-                        <label><b>First name</b></label>
-                        <input class="input-registration" type="text" placeholder="Enter First name" name="firstName"/>
 
-                        <label><b>Last name</b></label>
-                        <input class="input-registration" type="text" placeholder="Enter Last name" name="lastName"/>
 
-                        <label><b>User name</b></label>
-                        <input class="input-registration" type="text" placeholder="Enter User name" name="username" />
 
-                        <label><b>Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Enter Password" name="password" id="password" />
-                        <label><b>Repeat Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Repeat Password" name="repeatPassword" id="password_confirm" oninput="check(this)" />
+                    <!--</nav>-->
 
-                        <label><b>Email</b></label>
-                        <input class="input-registration" type="email" placeholder="Enter Email" name="email" />
+                <!--</div>-->
+            <!--</header>-->
 
-                        <label><b>Phone number</b></label>
-                        <input class="input-registration" type="number" placeholder="Enter phone number" name="phoneNumber" />
+            <!--&lt;!&ndash; Banner &ndash;&gt;-->
+            <!--<div id="banner">-->
+                <!--<h2><strong>ORIGINAL Shoes</strong> is The Best web-shop-->
+                    <!--<br/>-->
+                    <!--where you can buy comfort, status, quality</h2>-->
+                <!--<div>-->
+                    <!--<a onclick="document.getElementById('id01').style.display='block'"-->
+                       <!--class="button big icon fa-check-circle"><strong>Sign up</strong></a>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<p>Woud you like Join to us <br/> or </p> <br/>&ndash;&gt;-->
+                <!--<div>-->
+                    <!--<a onclick="document.getElementById('id02').style.display='block'"-->
+                       <!--class="button big icon fa-check-circle" id="b01"><strong>Log in </strong></a>-->
+                <!--</div>-->
+            <!--</div>-->
 
-                        <label><b>Your Photo</b></label>
-                        <input type="file" name="avatar" placeholder="avatarka"/>
+            <!--&lt;!&ndash;Form of Registration&ndash;&gt;-->
+            <!--<div id="id01" class="modal">-->
+                <!--<span onclick="document.getElementById('id01').style.display='none'" class="close"-->
+                      <!--title="Close Modal">×</span>-->
+                <!--<form class="modal-content animate" th:object="${user}" th:action="@{/registration}" method="post">-->
+                    <!--<div class="container-registration">-->
+                        <!--<label><b>First name</b></label>-->
+                        <!--<input class="input-registration" type="text" placeholder="Enter First name" name="firstName"/>-->
 
-                        <!--<input class="input-registration" type="checkbox" checked="checked"/><p>Remember me</p>-->
-                        <!--<p>By creating an account you agree to our Terms & Privacy.</p>-->
+                        <!--<label><b>Last name</b></label>-->
+                        <!--<input class="input-registration" type="text" placeholder="Enter Last name" name="lastName"/>-->
 
-                        <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                            <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
-                            <button type="submit" class="signupbtn" >Sign Up</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                        <!--<label><b>User name</b></label>-->
+                        <!--<input class="input-registration" type="text" placeholder="Enter User name" name="username"/>-->
 
-            <!--Form of Login-->
-            <div id="id02" class="modal">
-                <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
-                <form class="modal-content animate"  th:object="${user}" th:action="@{/login}" method="post">
-                    <div class="container-registration">
+                        <!--<label><b>Password</b></label>-->
+                        <!--<input class="input-registration" type="password" placeholder="Enter Password" name="password"-->
+                               <!--id="password"/>-->
+                        <!--<label><b>Repeat Password</b></label>-->
+                        <!--<input class="input-registration" type="password" placeholder="Repeat Password"-->
+                               <!--name="repeatPassword" id="password_confirm" oninput="check(this)"/>-->
 
-                        <label><b>Email</b></label>
-                        <input class="input-registration" type="email" placeholder="Enter Email" name="email" />
+                        <!--<label><b>Email</b></label>-->
+                        <!--<input class="input-registration" type="email" placeholder="Enter Email" name="email"/>-->
 
-                        <label><b>Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Enter Password" name="password" id="password" />
+                        <!--<label><b>Phone number</b></label>-->
+                        <!--<input class="input-registration" type="number" placeholder="Enter phone number"-->
+                               <!--name="phoneNumber"/>-->
 
-                        <div class="clearfix">
-                            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-                            <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
-                            <button type="submit" class="signupbtn" >Log in</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                        <!--<label><b>Your Photo</b></label>-->
+                        <!--<input type="file" name="avatar" placeholder="avatarka"/>-->
 
-        </div>
-    </div>
+                        <!--&lt;!&ndash;<input class="input-registration" type="checkbox" checked="checked"/><p>Remember me</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p>By creating an account you agree to our Terms & Privacy.</p>&ndash;&gt;-->
+
+                        <!--<div class="clearfix">-->
+                            <!--<button type="button" onclick="document.getElementById('id01').style.display='none'"-->
+                                    <!--class="cancelbtn buttonOfWindow">Cancel-->
+                            <!--</button>-->
+                            <!--&lt;!&ndash;<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>&ndash;&gt;-->
+                            <!--<button type="submit" class="signupbtn buttonOfWindow">Sign Up</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;Form of Login&ndash;&gt;-->
+            <!--<div id="id02" class="modal">-->
+                <!--<span onclick="document.getElementById('id02').style.display='none'" class="close"-->
+                      <!--title="Close Modal">×</span>-->
+                <!--<form class="modal-content animate" th:object="${user}" th:action="@{/login}" method="post">-->
+                    <!--<div class="container-registration">-->
+
+                        <!--<label><b>Email</b></label>-->
+                        <!--<input class="input-registration" type="email" placeholder="Enter Email" name="email"/>-->
+
+                        <!--<label><b>Password</b></label>-->
+                        <!--<input class="input-registration" type="password" placeholder="Enter Password" name="password"-->
+                               <!--id="password"/>-->
+
+                        <!--<div class="clearfix">-->
+                            <!--<button type="button" onclick="document.getElementById('id02').style.display='none'"-->
+                                    <!--class="cancelbtn buttonOfWindow">Cancel-->
+                            <!--</button>-->
+                            <!--&lt;!&ndash;<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>&ndash;&gt;-->
+                            <!--<button type="submit" class="signupbtn buttonOfWindow">Log in</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
 
     <!-- Main Wrapper -->
     <div id="main-wrapper">
