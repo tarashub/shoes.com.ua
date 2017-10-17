@@ -2413,8 +2413,8 @@ input[type=email],
 .buttonOfWindow {
 	background-color: #4091bf;
 	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
+	padding: 1em 1em;
+	/*margin: 8px 0;*/
 	border: none;
 	cursor: pointer;
 	width: 100%;
@@ -2438,7 +2438,7 @@ input[type=email],
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	z-index: 999999; /* Sit on top */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */

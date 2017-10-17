@@ -115,51 +115,6 @@ window.onclick = function (event) {
     }
 }
 
-////////////////////////////
-// Save JSON object to MySQL
-////////////////////////////
-
-$(function () {
-    $('#btnSubmit').click(function () {
-        var firstName = $('#firstName').val();
-        var lastName = $('#lastName').val();
-        var userName = $('#userName').val();
-        var password = $('#password').val();
-        var email = $('#email').val();
-        var phoneNumber = $('#phoneNumber').val();
-        if (firstName != '' && lastName != '' && userName != '' && password != '' && email != '' && phoneNumber != '') {
-            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: "Default.aspx/InsertData",
-                data: '{firstName: ' + firstName +
-                ',lastName: ' + lastName +
-                ',userName:' + userName +
-                ',password:' + password +
-                ',email:' + email +
-                ',phoneNumber:' + phoneNumber + '}',
-                dataType: "json",
-                success: function (data) {
-                    var obj = data.d;
-                    if (obj == 'true') {
-                        $('#txtName').val('');
-                        $('#txtUsername').val('');
-                        $('#txtPassword').val('');
-                        $('#lblmsg').html("Details Submitted Successfully");
-                        window.location.reload();
-                    }
-                },
-                error: function (result) {
-                    alert("Error");
-                }
-            });
-        }
-        else {
-            alert('Please enter all the fields')
-            return false;
-        }
-    })
-});
 
 /////////////////////
 // Confirm password
@@ -172,6 +127,23 @@ function check(input) {
         input.setCustomValidity('');
     }
 }
+
+/////////////////////
+//Check password's length
+/////////////////////////
+$('#password').on('blur', function(){
+    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    if(this.value.length < 8){ // checks the password value length
+        alert('You have entered less than 8 characters for password');
+        $(this).focus(); // focuses the current field.
+        return true; // stops the execution.
+    } else if (this.value.match(decimal)) {
+        alert('Correct, try another...')
+        return true;
+    }
+});
+
+
 
 ////////////////////
 // Search Service
@@ -222,3 +194,48 @@ function check(input) {
 
 
 
+////////////////////////////
+// Save JSON object to MySQL
+////////////////////////////
+
+// $(function () {
+//     $('#btnSubmit').click(function () {
+//         var firstName = $('#firstName').val();
+//         var lastName = $('#lastName').val();
+//         var userName = $('#userName').val();
+//         var password = $('#password').val();
+//         var email = $('#email').val();
+//         var phoneNumber = $('#phoneNumber').val();
+//         if (firstName != '' && lastName != '' && userName != '' && password != '' && email != '' && phoneNumber != '') {
+//             $.ajax({
+//                 type: "POST",
+//                 contentType: "application/json; charset=utf-8",
+//                 url: "Default.aspx/InsertData",
+//                 data: '{firstName: ' + firstName +
+//                 ',lastName: ' + lastName +
+//                 ',userName:' + userName +
+//                 ',password:' + password +
+//                 ',email:' + email +
+//                 ',phoneNumber:' + phoneNumber + '}',
+//                 dataType: "json",
+//                 success: function (data) {
+//                     var obj = data.d;
+//                     if (obj == 'true') {
+//                         $('#txtName').val('');
+//                         $('#txtUsername').val('');
+//                         $('#txtPassword').val('');
+//                         $('#lblmsg').html("Details Submitted Successfully");
+//                         window.location.reload();
+//                     }
+//                 },
+//                 error: function (result) {
+//                     alert("Error");
+//                 }
+//             });
+//         }
+//         else {
+//             alert('Please enter all the fields')
+//             return false;
+//         }
+//     })
+// });

@@ -93,7 +93,8 @@
 
                         <label><b>Password</b></label>
                         <input class="input-registration" type="password" placeholder="Enter Password" name="password"
-                               id="password"/>
+                               id="password" oninput="checking(this)"/>
+
                         <label><b>Repeat Password</b></label>
                         <input class="input-registration" type="password" placeholder="Repeat Password"
                                name="repeatPassword" id="password_confirm" oninput="check(this)"/>
@@ -113,7 +114,7 @@
                                     class="cancelbtn">Cancel
                             </button>
                             <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
-                            <button type="submit" class="signupbtn">Sign Up</button>
+                            <button type="submit" class="signupbtn buttonOfWindow">Sign Up</button>
                         </div>
                     </div>
                 </form>
@@ -126,19 +127,18 @@
                 <form class="modal-content animate" th:object="${user}" th:action="@{/login}" method="post">
                     <div class="container-registration">
 
-                        <label><b>Email</b></label>
-                        <input class="input-registration" type="email" placeholder="Enter Email" name="email"/>
+                        <label><b>Имя пользователя</b></label>
+                        <input class="input-registration" type="text" placeholder="Введите имя пользователя" name="username"/>
 
-                        <label><b>Password</b></label>
-                        <input class="input-registration" type="password" placeholder="Enter Password" name="password"
-                               id="password"/>
+                        <label><b>Пароль</b></label>
+                        <input class="input-registration" type="password" placeholder="Введите пароль" name="password"/>
 
                         <div class="clearfix">
                             <button type="button" onclick="document.getElementById('id02').style.display='none'"
                                     class="cancelbtn">Cancel
                             </button>
                             <!--<a href="#" th:href="@{registration}"><button type="submit" class="signupbtn" >Sign Up</button></a>-->
-                            <button type="submit" class="signupbtn">Log in</button>
+                            <button type="submit" class="signupbtn buttonOfWindow">Log in</button>
                         </div>
                     </div>
                 </form>

@@ -4,14 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import shoes.com.ua.entity.User;
 import shoes.com.ua.services.MailSenderService;
+import shoes.com.ua.services.SecurityService;
 import shoes.com.ua.services.UserService;
+import shoes.com.ua.validator.UserValidator;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
@@ -22,6 +24,10 @@ public class MainController {
     private UserService userService;
     @Autowired
     private MailSenderService senderService;
+    @Autowired
+    SecurityService securityService;
+    @Autowired
+    UserValidator userValidator;
 
 
     @GetMapping({"/", "/home"})
@@ -50,18 +56,49 @@ public class MainController {
         return "sales";
     }
 
+
     @GetMapping("/login")
-    public String login(HttpServletRequest request) {
+    public String login(Model model, String error, String logout) {
+        if (error != null)
+            model.addAttribute("error", "Your username and password is invalid.");
 
-        Iterable<User> col = userService.findAll();
+        if (logout != null)
+            model.addAttribute("message", "You have been logged out successfully.");
 
-        long count = userService.count();
-        System.out.println("count " + count);
-        request.setAttribute("userCount", count);
-        //model.addAttribute("userCount", count);
-
-        return "login";
+        return "index";
     }
+
+
+    @PostMapping("/registration")
+    public String signUp(User user, BindingResult bindingResult){
+
+        userValidator.validate(user, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        }
+
+        userService.save(user);
+        securityService.autologin(user.getUsername(), user.getPassword());
+//        senderService.send(user);
+        return "index";
+    }
+
+    @GetMapping("/users")
+    public String users(Model model) {
+        model.addAttribute("users", userService.findAll());
+
+        return "users";
+    }
+
+    @GetMapping("/user-{id}")
+    public String user(@PathVariable("id") int idUser, Model model) {
+        model.addAttribute("user", userService.findOne(idUser));
+        return "simpleUser";
+    }
+
+
+}
 
 
 //    @GetMapping("/register")
@@ -97,27 +134,3 @@ public class MainController {
 //
 //        return "index";
 //    }
-
-    @PostMapping("/registration")
-    public String saveProduct(User user){
-
-        userService.save(user);
-
-        return "index";
-    }
-
-    @GetMapping("/users")
-    public String users(Model model) {
-        model.addAttribute("users", userService.findAll());
-
-        return "users";
-    }
-
-    @GetMapping("/user-{id}")
-    public String user(@PathVariable("id") int idUser, Model model) {
-        model.addAttribute("user", userService.findOne(idUser));
-        return "simpleUser";
-    }
-
-
-}
