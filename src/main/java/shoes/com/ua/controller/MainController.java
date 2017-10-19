@@ -8,8 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import shoes.com.ua.entity.Products;
 import shoes.com.ua.entity.User;
 import shoes.com.ua.services.MailSenderService;
+import shoes.com.ua.services.ProductsService;
 import shoes.com.ua.services.SecurityService;
 import shoes.com.ua.services.UserService;
 import shoes.com.ua.validator.UserValidator;
@@ -28,6 +30,9 @@ public class MainController {
     SecurityService securityService;
     @Autowired
     UserValidator userValidator;
+
+    @Autowired
+    ProductsService productsService;
 
 
     @GetMapping({"/", "/home"})
@@ -82,6 +87,13 @@ public class MainController {
         securityService.autologin(user.getUsername(), user.getPassword());
 //        senderService.send(user);
         return "index";
+    }
+
+    @PostMapping("/createProduct")
+    public String createProduct(Products products){
+
+        productsService.save(products);
+        return "new";
     }
 
     @GetMapping("/users")

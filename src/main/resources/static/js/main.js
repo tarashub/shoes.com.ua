@@ -116,6 +116,7 @@ window.onclick = function (event) {
 }
 
 
+
 /////////////////////
 // Confirm password
 ////////////////////
@@ -131,17 +132,18 @@ function check(input) {
 /////////////////////
 //Check password's length
 /////////////////////////
-$('#password').on('blur', function(){
-    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    if(this.value.length < 8){ // checks the password value length
-        alert('You have entered less than 8 characters for password');
-        $(this).focus(); // focuses the current field.
-        return true; // stops the execution.
-    } else if (this.value.match(decimal)) {
-        alert('Correct, try another...')
-        return true;
-    }
-});
+
+// $('#password').on('blur', function(){
+//     var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+//     if(this.value.length < 8){ // checks the password value length
+//         this.setCustomValidity('You have entered less than 8 characters for password');
+//         // $(this).focus(); // focuses the current field.
+//         // return false; // stops the execution.
+//     } else if (this.value.match(decimal)) {
+//         this.setCustomValidity('Correct, try another...')
+//         return true;
+//     }
+// });
 
 
 
